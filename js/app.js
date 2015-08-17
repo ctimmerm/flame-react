@@ -42,11 +42,11 @@ App.RootView = Flame.View.extend({
                 this.set('name', name);
             },
 
-            renderComponent: function() {
+            renderComponent: function(element) {
                 React.render(Foo({
                     name: this.get('name'),
                     onChange: this.updateName.bind(this)
-                }), this.get('element'));
+                }), element);
             }
         })
     })

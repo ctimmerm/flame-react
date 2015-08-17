@@ -18,7 +18,7 @@ window.ReactView = Flame.View.extend({
     },
 
     didInsertElement: function() {
-        this.renderComponent();
+        this.renderComponent(this.get('element'));
     },
 
     willDestroyElement: function() {
@@ -27,7 +27,8 @@ window.ReactView = Flame.View.extend({
 
     scheduleRerender: function() {
         Ember.run.schedule('afterRender', this, function() {
-            if (this.get('element')) this.renderComponent();
+            var element = this.get('element');
+            if (element) this.renderComponent(element);
         });
     }
 });
