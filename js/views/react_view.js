@@ -30,5 +30,9 @@ window.ReactView = Flame.View.extend({
             var element = this.get('element');
             if (element) this.renderComponent(element);
         });
+    },
+
+    renderComponent: function() {
+        throw new Error('You need to implement renderComponent!');
     }
 });
