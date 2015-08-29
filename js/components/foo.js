@@ -7,9 +7,7 @@ var Foo = React.createClass({
         Flame.Popover.create({
             layout: { width: 500, height: 300 },
             contentView: ReactView.extend({
-                renderComponent: function(element) {
-                    React.render(Bar(), element);
-                }
+                component: Bar()
             })
         }).popup($(React.findDOMNode(this.refs.button)), Flame.POSITION_BELOW);
     },

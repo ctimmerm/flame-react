@@ -35,19 +35,16 @@ App.RootView = Flame.View.extend({
         }),
 
         rightView: ReactView.extend({
-            reactProperties: ['name'],
             name: Flame.computed.nearest('myName'),
 
-            updateName: function(name) {
-                this.set('name', name);
-            },
-
-            renderComponent: function(element) {
-                React.render(Foo({
+            component: function() {
+                return Foo({
                     name: this.get('name'),
-                    onChange: this.updateName.bind(this)
-                }), element);
-            }
+                    onChange: function(name) {
+                        this.set('name', name);
+                    }.bind(this)
+                });
+            }.property('name')
         })
     })
 });
