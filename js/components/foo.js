@@ -13,7 +13,7 @@ var Foo = React.createClass({
     },
 
     render: function() {
-        return React.DOM.div({},
+        return React.DOM.div(null,
              'Hello from React, ' + this.props.name + '!',
              React.DOM.br(),
              React.DOM.input({
